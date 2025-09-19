@@ -16,14 +16,8 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification, pipe
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 
-# ----------------------------
-# Page config
-# ----------------------------
 st.set_page_config(page_title="Movie Review Sentiment Analysis", layout="wide")
 
-# ----------------------------
-# Download NLTK data (cached)
-# ----------------------------
 @st.cache_resource
 def download_nltk_data():
     try:
@@ -37,9 +31,6 @@ def download_nltk_data():
 
 download_nltk_data()
 
-# ----------------------------
-# Utility functions
-# ----------------------------
 def safe_load_joblib(path, name):
     try:
         return load(path)
@@ -166,7 +157,7 @@ def load_models_and_data():
 
     # ------------- Transformer from HF ----------------
     # CHANGE THIS to your Hugging Face repo id:
-    HF_MODEL_REPO = "KelvinIsDaBest/sentiment_model"  # <-- replace with your HF repo id
+    HF_MODEL_REPO = "kelvindabest/sentiment-model"  # <-- replace with your HF repo id
 
     # Look for Hugging Face token in Streamlit secrets or env
     hf_token = None
@@ -461,3 +452,4 @@ if st.button("Analyze Sentiment"):
             st.markdown(f"Overall sentiment: <span style='color:red'>**NEGATIVE**</span>", unsafe_allow_html=True)
         else:
             st.markdown(f"Overall sentiment: **MIXED (TIE)**", unsafe_allow_html=True)
+
