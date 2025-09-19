@@ -289,20 +289,6 @@ def load_comparison_data(file_path):
 # Initialize the app
 st.set_page_config(page_title="Movie Review Sentiment Analysis", layout="wide")
 
-# Add input field for Hugging Face model name
-st.sidebar.header("Configuration")
-model_name_input = st.sidebar.text_input(
-    "Hugging Face Model Name", 
-    value=HUGGING_FACE_MODEL_NAME,
-    help="Enter your Hugging Face model name (e.g., username/model-name)"
-)
-
-# Update the model name if changed
-if model_name_input != HUGGING_FACE_MODEL_NAME:
-    HUGGING_FACE_MODEL_NAME = model_name_input
-    # Clear cache to reload with new model
-    st.cache_resource.clear()
-
 # Load models and data
 models, data = load_models_and_data()
 
@@ -615,5 +601,6 @@ if models:
 
 else:
     st.error("Models could not be loaded. Please ensure models are saved and accessible.")
+
 
 
