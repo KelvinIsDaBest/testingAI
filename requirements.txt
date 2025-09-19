@@ -1,0 +1,12 @@
+streamlit
+pandas
+scikit-learn
+joblib
+nltk
+contractions
+datasets
+kaggle
+torch
+transformers
+tokenizers
+matplotlib
