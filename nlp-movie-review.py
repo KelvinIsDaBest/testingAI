@@ -51,7 +51,6 @@ def load_transformer_model_from_hf(model_name):
             return_all_scores=False
         )
         
-        st.success(f"Successfully loaded model from Hugging Face: {model_name}")
         return tokenizer, model, sentiment_pipeline
         
     except Exception as e:
@@ -616,4 +615,5 @@ if models:
 
 else:
     st.error("Models could not be loaded. Please ensure models are saved and accessible.")
+
 
