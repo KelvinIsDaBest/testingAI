@@ -33,7 +33,7 @@ def download_nltk_data():
 download_nltk_data()
 
 # Hugging Face model configuration
-HUGGING_FACE_MODEL_NAME = "your-username/your-model-name"  # Replace with your actual model name
+HUGGING_FACE_MODEL_NAME = "kelvindabest/sentiment-model"  # Replace with your actual model name
 
 @st.cache_resource
 def load_transformer_model_from_hf(model_name):
@@ -230,7 +230,6 @@ def load_models_and_data():
             models['nb_std_tfidf'] = load('naive_bayes_model_for_std_tfidf_baseline.joblib')
             models['svm_std_tfidf'] = load('svm_model_for_std_tfidf_baseline.joblib')
             models['tfidf_vectorizer_std'] = load('tfidf_vectorizer_for_std_tfidf_baseline.joblib')
-            st.success("Standard TF-IDF models loaded successfully")
         except Exception as e:
             st.warning(f"Error loading Standard TF-IDF models: {e}")
 
@@ -240,7 +239,6 @@ def load_models_and_data():
             models['nb_pos_driven'] = load('naive_bayes_model_for_pos_driven.joblib')
             models['svm_pos_driven'] = load('svm_model_for_pos_driven.joblib')
             models['tfidf_vectorizer_pos'] = load('tfidf_vectorizer_for_pos_driven.joblib')
-            st.success("POS-Driven models loaded successfully")
         except Exception as e:
             st.warning(f"Error loading POS-Driven models: {e}")
 
@@ -618,3 +616,4 @@ if models:
 
 else:
     st.error("Models could not be loaded. Please ensure models are saved and accessible.")
+
